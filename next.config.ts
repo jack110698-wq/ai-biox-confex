@@ -7,6 +7,20 @@ const nextConfig: NextConfig = {
       root: __dirname,
     },
   },
+  // 외부 접근 허용
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
